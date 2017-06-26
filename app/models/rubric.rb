@@ -1,6 +1,7 @@
 class Rubric < ApplicationRecord
+  strip_attributes only: :title
   validates :title, presence: true, length: {maximum: 255}
   has_many :rubrics, dependent: :destroy
-  belongs_to :rubric
+  belongs_to :rubric, optional: true
 end
 
