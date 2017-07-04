@@ -1,7 +1,9 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+def random_string(length = 8)
+  rand(32**length).to_s(32)
+end
+
+20.times { Rubric.create(title: "#{random_string(8)}", content: "#{random_string(8)}") }
+
+500.times do
+  Rubric.create(title: "#{random_string(8)}", content: "#{random_string(8)}", rubric: Rubric.order('random()').first)
+end
