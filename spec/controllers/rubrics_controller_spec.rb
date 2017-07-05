@@ -1,5 +1,5 @@
 require 'rails_helper'
 
-RSpec.describe RubricsController, type: :controller do
+RSpec.describe RubricsController do
 
 end

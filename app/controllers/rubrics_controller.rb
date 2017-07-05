@@ -1,11 +1,5 @@
 class RubricsController < ApplicationController
-
   def index
-    @rubrics = Rubric.all
+    @rubrics = Rubric.where(rubric_id: params[:rubric_id])
   end
-
-  def show
-    @rubrics = Rubric.all
-  end
-
 end
