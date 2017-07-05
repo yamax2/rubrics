@@ -1,0 +1,10 @@
+%h1 New Client
+= form_for(@client) do |f|
+  .field
+    = f.label :name
+    %br/
+    = f.text_field :name
+  .actions
+    = f.submit @client.new_record? ? 'Create' : 'Edit'
+%br/
+= link_to 'Back', clients_path
