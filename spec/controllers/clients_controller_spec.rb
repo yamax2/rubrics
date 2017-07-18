@@ -81,10 +81,7 @@ RSpec.describe ClientsController do
     context 'invalid attributes' do
       let(:request) { post :update,  params: {id: client.id, client: attributes_for(:client, name: nil) } }
 
-      before do
-        request
-        client.reload
-      end
+      before { request }
 
       it do
         expect(assigns(:client).errors).not_to be_empty
