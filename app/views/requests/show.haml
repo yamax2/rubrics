@@ -1,0 +1,21 @@
+%p
+  %strong Request:
+  %br/
+
+  title
+  %br/
+  = @request.title
+  %br/
+  %br/
+  body
+  %br/
+  = @request.body
+
+  %br/
+  %br/
+  %td= link_to 'Destroy', [@client, @request], method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger'
+  %br/
+
+  %br/
+  = link_to 'Back to client', @client, class: 'btn btn-warning'
+  = link_to 'Main page', clients_path, class: 'btn btn-primary'

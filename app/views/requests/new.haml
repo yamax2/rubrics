@@ -1,0 +1,15 @@
+%h1 New Request
+= form_for [@client, @request] do |f|
+  .field
+    = f.label :title
+    %br/
+    = f.text_field :title
+    %br/
+    = f.label :body
+    %br/
+    = f.text_field :body
+  .actions
+    %br/
+    = f.submit @request.new_record? ? 'Create' : 'Edit'
+%br/
+= link_to 'All requests', client_requests_path

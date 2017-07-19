@@ -29,6 +29,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails', '~> 4.3.1'
 gem 'strip_attributes', '~> 1.8.0'
+gem 'faker', '~> 1.7.3'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
@@ -44,6 +45,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.6.0'
   gem 'factory_girl_rails', '~>4.8.0'
   gem 'shoulda-matchers', '~> 2.8.0'
+  gem 'rails-controller-testing', '~> 1.0.2'
 end
 
 group :development do
@@ -56,4 +58,3 @@ group :development do
   gem 'pry-rails'
   gem 'pry'
 end
-

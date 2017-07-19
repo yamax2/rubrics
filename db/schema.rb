@@ -10,10 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170623114320) do
+ActiveRecord::Schema.define(version: 20170707122640) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "clients", force: :cascade do |t|
+    t.string "name", limit: 255, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "requests", force: :cascade do |t|
+    t.string "title", limit: 255, null: false
+    t.text "body"
+    t.bigint "client_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["client_id"], name: "index_requests_on_client_id"
+  end
 
   create_table "rubrics", force: :cascade do |t|
     t.string "title", limit: 255, null: false
@@ -24,5 +39,6 @@ ActiveRecord::Schema.define(version: 20170623114320) do
     t.index ["rubric_id"], name: "index_rubrics_on_rubric_id"
   end
 
+  add_foreign_key "requests", "clients"
   add_foreign_key "rubrics", "rubrics"
 end

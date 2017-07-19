@@ -1,0 +1,13 @@
+%strong Client:
+= @client.name
+%br
+%br
+%br
+
+= link_to 'New Request', new_client_request_path(@client), class: 'btn btn-warning'
+%br
+%br
+= link_to 'Edit client', edit_client_path(@client),  class: 'btn btn-danger'
+%br
+%br
+= link_to 'Main page', clients_path, class: 'btn btn-primary'

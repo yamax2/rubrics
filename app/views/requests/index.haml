@@ -1,0 +1,17 @@
+= link_to 'Main page', clients_path
+%h1 Request list
+
+= link_to 'New Request', new_client_request_path, class: 'btn btn-primary'
+%table.table.table-striped
+  %thead
+    %tr
+      %th Title
+      %th{colspan: 3}
+  %tbody
+    - @client.requests.each do |req|
+      %tr
+        %td= link_to req.title, client_request_path(@client, req)
+        %td= link_to 'Show Request', client_request_path(@client, req), class: 'btn btn-info'
+        %td= link_to 'Edit request', edit_client_request_path(@client, req),  class: 'btn btn-info'
+        %td= link_to 'Destroy', client_request_path(@client, req), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger'
+%br/
