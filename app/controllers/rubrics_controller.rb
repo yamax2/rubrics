@@ -7,7 +7,6 @@ class RubricsController < ApplicationController
     else
       @rubrics = Rubric.where(rubric_id: nil)
     end
-
   end
 
   def new
@@ -45,15 +44,4 @@ class RubricsController < ApplicationController
   def rubric_params
     params.require(:rubric).permit(:name, :rubric_id)
   end
-
-
-
-
-
-
-
-
-
-
-
 end
