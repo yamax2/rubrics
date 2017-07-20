@@ -1,6 +1,6 @@
 %p#notice= notice
 %h1 Rubric list
-= link_to 'New Rubric', new_rubric_path, class: 'btn btn-primary'
+= link_to 'New Rubric', new_rubric_path(rubric_id: @rubric&.id), class: 'btn btn-primary'
 %table.table.table-striped
   %thead
     %tr
@@ -10,8 +10,8 @@
     - @rubrics.each do |rubric|
       %tr
         %td= link_to rubric.title, rubrics_path(rubric_id: rubric.id)
-        %td= link_to 'Edit', edit_rubric_path(rubric), class: 'btn btn-info'
-        %td= link_to 'Destroy', rubric, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-warning'
+        %td= link_to 'Edit rubric', edit_rubric_path(rubric), class: 'btn btn-info'
+        %td= link_to 'Destroy', rubric, method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-warning'
 
 %br/
 
