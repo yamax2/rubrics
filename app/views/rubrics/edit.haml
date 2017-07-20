@@ -1,0 +1,10 @@
+%h1 Editing Rubric
+= form_for(@rubric) do |f|
+  .field
+    = f.label :title
+    %br/
+    = f.text_field :title
+  .actions
+    = f.submit @rubric.new_record? ? 'Create' : 'Edit'
+%br/
+= link_to 'Back', rubrics_path
