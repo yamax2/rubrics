@@ -43,7 +43,7 @@ RSpec.describe ClientsController do
   describe '#create' do
     let(:request) { post :create, params: {client: client_attributes} }
 
-    context 'with valid attributes' do
+    context 'valid attributes' do
       let(:client_attributes) { attributes_for(:client) }
 
       it do
@@ -52,7 +52,7 @@ RSpec.describe ClientsController do
       end
     end
 
-    context 'with invalid attributes' do
+    context 'invalid attributes' do
       let(:client_attributes) { attributes_for(:client, name: nil) }
 
       it do

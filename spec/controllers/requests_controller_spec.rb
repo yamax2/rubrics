@@ -15,7 +15,7 @@ RSpec.describe RequestsController do
   describe '#create' do
     let(:request) { post :create, params: { client_id: client.id, request: req_attributes } }
 
-    context 'with valid attributes' do
+    context 'valid attributes' do
       let(:req_attributes) { attributes_for(:request) }
 
       it do
