@@ -1,4 +1,8 @@
-%p#notice= notice
+- if @rubric
+  - breadcrumb :rubrics
+- else
+  - breadcrumb :rubric, @rubric
+
 %h1 Rubric list
 = link_to 'New Rubric', new_rubric_path(rubric_id: @rubric&.id), class: 'btn btn-primary'
 %table.table.table-striped
