@@ -2,7 +2,7 @@ class RequestsController < ApplicationController
   before_action :find_request, only: %i(show edit update destroy)
   before_action :find_client
   def index
-    @requests = @client.requests.order(:id)
+    @requests = @client.requests.order(:id).page(params[:page])
   end
 
   def new

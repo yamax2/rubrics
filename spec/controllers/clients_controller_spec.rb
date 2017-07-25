@@ -4,12 +4,33 @@ RSpec.describe ClientsController do
   let(:client) { create(:client) }
 
   describe '#index' do
-    let(:clients) { create_list(:client, 2) }
-    before { get :index }
+    context 'with more than 9 clients' do
+      let!(:clients) { create_list(:client, 9) }
+      context 'page 1' do
+        before { get :index }
 
-    it do
-      expect(assigns(:clients)).to match_array(clients)
-      expect(response).to render_template :index
+        it do
+          expect(assigns(:clients).count).to eq 8
+        end
+      end
+
+      context 'page 2' do
+        before { get :index, params: {page: 2} }
+
+        it do
+          expect(assigns(:clients).count).to eq 1
+        end
+      end
+    end
+
+    context 'with less than 9 clients' do
+      let(:clients) { create_list(:client, 2) }
+      before { get :index }
+
+      it do
+        expect(assigns(:clients)).to match_array(clients)
+        expect(response).to render_template :index
+      end
     end
   end
 

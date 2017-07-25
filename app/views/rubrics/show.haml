@@ -2,12 +2,13 @@
 %strong Rubric subs:
 = link_to @rubric.title, rubrics_path(rubric_id: @rubric.id)
 %br
+%strong Rubric content:
+= @rubric.content
 %br
 %br
 = link_to 'New Main Rubric', new_rubric_path, class: 'btn btn-warning'
 %br
 %br
-
 = link_to 'New Subrubric', new_rubric_path(rubric_id: @rubric&.id), class: 'btn btn-warning'
 %br
 %br

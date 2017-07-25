@@ -5,9 +5,14 @@
     = f.label :title
     %br/
     = f.text_field :title
+    %br/
+    = f.label :content
+    %br/
+    = f.text_field :content
+    %br/
+    %br/
   .actions
     = f.submit @rubric.new_record? ? 'Create' : 'Edit'
 %br/
 %br/
-
 = link_to 'Main Page', rubrics_path

@@ -1,3 +1,7 @@
+- breadcrumb :clients
+
+= paginate @clients, views_prefix: 'pagination'
+
 %p#notice= notice
 %h1 Client list
 = link_to 'New Client', new_client_path, class: 'btn btn-primary'
@@ -15,3 +19,5 @@
         %td= link_to 'Destroy', client, method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger'
 
 %br/
+
+= paginate @clients, views_prefix: 'pagination'

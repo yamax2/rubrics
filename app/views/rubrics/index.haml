@@ -3,6 +3,8 @@
 - else
   - breadcrumb :rubrics
 
+= paginate @rubrics, views_prefix: 'pagination'
+
 %h1 Rubric list
 = link_to 'New Rubric', new_rubric_path(rubric_id: @rubric&.id), class: 'btn btn-primary'
 %table.table.table-striped
@@ -14,7 +16,9 @@
     - @rubrics.each do |rubric|
       %tr
         %td= link_to rubric.title, rubrics_path(rubric_id: rubric.id)
+        %td= link_to 'Show rubric', rubric_path(rubric), class: 'btn btn-info'
         %td= link_to 'Edit rubric', edit_rubric_path(rubric), class: 'btn btn-info'
-        %td= link_to 'Destroy', rubric, method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-warning'
-
+        %td= link_to 'Destroy', rubric, method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger'
 %br/
+
+= paginate @rubrics, views_prefix: 'pagination'
