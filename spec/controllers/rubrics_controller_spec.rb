@@ -4,12 +4,22 @@ RSpec.describe RubricsController do
   let(:rubric) { create(:rubric) }
 
   describe '#index' do
-    let(:rubrics) { create_list(:rubric, 2) }
-    before { get :index }
+    context 'with more than 9 rubrics' do
+      let(:rubrics) { create_list(:rubric, 9) }
 
-    it do
-      expect(assigns(:rubrics)).to match_array(rubrics)
-      expect(response).to render_template :index
+      it do
+        expect(assigns(:rubrics)).to_not match_array(rubrics)
+      end
+    end
+
+    context 'with less than 9 rubrics' do
+      let(:rubrics) { create_list(:rubric, 2) }
+      before { get :index }
+
+      it do
+        expect(assigns(:rubrics)).to match_array(rubrics)
+        expect(response).to render_template :index
+      end
     end
   end
 

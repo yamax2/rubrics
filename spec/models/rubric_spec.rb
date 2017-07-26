@@ -13,7 +13,7 @@ RSpec.describe Rubric do
 
   describe 'validations' do
     it { is_expected.to validate_presence_of(:title) }
-    it { is_expected.to validate_length_of(:title).is_at_most(255) }
+    it { is_expected.to validate_length_of(:title).is_at_most(55) }
 
     context 'when parent_id is wrong' do
       let(:rubric) { build :rubric, rubric_id: -1231312 }

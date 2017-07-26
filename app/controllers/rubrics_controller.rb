@@ -3,9 +3,9 @@ class RubricsController < ApplicationController
   def index
     if params[:rubric_id]
       @rubric = Rubric.find(params[:rubric_id])
-      @rubrics = @rubric.rubrics
+      @rubrics = @rubric.rubrics.page(params[:page])
     else
-      @rubrics = Rubric.without_rubric
+      @rubrics = Rubric.without_rubric.page(params[:page])
     end
   end
 
@@ -42,6 +42,6 @@ class RubricsController < ApplicationController
   end
 
   def rubric_params
-    params.require(:rubric).permit(:title, :rubric_id)
+    params.require(:rubric).permit(:title, :content, :rubric_id)
   end
 end

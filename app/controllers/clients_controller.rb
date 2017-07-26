@@ -1,7 +1,7 @@
 class ClientsController < ApplicationController
   before_action :find_client, only: %i(show edit update destroy)
   def index
-    @clients = Client.all.order(:id)
+    @clients = Client.order(:id).page(params[:page])
   end
 
   def new
