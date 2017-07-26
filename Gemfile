@@ -41,13 +41,17 @@ gem 'kaminari', '~> 1.0.1'
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Adds support for Capybara system testing and selenium driver
   gem 'rspec-rails', '~> 3.6.0'
   gem 'factory_girl_rails', '~>4.8.0'
   gem 'shoulda-matchers', '~> 2.8.0'
   gem 'rails-controller-testing', '~> 1.0.2'
+
+  platform :mswin, :mri, :mingw, :x64_mingw do
+    # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+    gem 'byebug'
+    gem 'tzinfo-data'
+  end
 end
 
 group :development do
