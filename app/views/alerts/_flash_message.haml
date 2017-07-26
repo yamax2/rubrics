@@ -1,0 +1,6 @@
+.alert.alert-dismissible.top{class: 'alert-info'}
+  %button.close{'data-dismiss' => 'alert'}
+    %span{'aria-hidden' => true} &times;
+  - flash.each do |_, value|
+    %ul.list-unstyled
+      %li= value

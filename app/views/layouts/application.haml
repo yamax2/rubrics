@@ -10,6 +10,9 @@
   %body
     = render('layouts/top_menu')
     .container
+      - unless flash.empty?
+        = render('alerts/flash_message')
+
       = breadcrumbs style: :bootstrap
       = yield
 
