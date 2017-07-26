@@ -1,16 +1,17 @@
-%h1 Editing Rubric
-= form_for(@rubric) do |f|
-  .field
-    = f.label :title
-    %br/
-    = f.text_field :title
-    %br/
-    = f.label :content
-    %br/
-    = f.text_area :content
-    %br/
-    %br/
-  .actions
-    = f.submit @rubric.new_record? ? 'Create' : 'Edit'
-%br/
-= link_to 'Main Page', rubrics_path
+- breadcrumb :rubric, @rubric
+
+.form-horizontal
+  %h1 Editing Rubric
+  = form_for(@rubric) do |f|
+    .form-group
+      .col-xs-2.col-sm-1.col-md-1.control-label
+        = f.label :title
+      .col-xs-8.col-sm-6.col-md-4
+        = f.text_field :title, class: 'form-control', autofocus: true
+    .form-group
+      .col-xs-2.col-sm-1.col-md-1.control-label
+        = f.label :content
+      .col-xs-8.col-sm-6.col-md-4
+        = f.text_area :content, rows: 5, class: 'form-control'
+    .actions
+      = f.submit @rubric.new_record? ? 'Create' : 'Save', class: 'btn btn-primary'

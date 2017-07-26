@@ -1,7 +1,8 @@
-%p#notice= notice
-%h1 Lists of
-= link_to 'Rubrics', rubrics_path, class: 'btn btn-primary'
-%br/
-%br/
-= link_to 'Clients', clients_path, class: 'btn btn-primary'
-%br/
+.jumbotron
+  %h2.display-3 Рубрикатор
+  %p.lead
+  %hr.my-4
+  %p Описание
+  %p.lead
+    = link_to 'Rubrics', rubrics_path, class: 'btn btn-primary'
+    = link_to 'Clients', clients_path, class: 'btn btn-primary'

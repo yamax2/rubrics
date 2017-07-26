@@ -2,22 +2,21 @@
 
 = paginate @clients, views_prefix: 'pagination'
 
-%p#notice= notice
-%h1 Client list
-= link_to 'New Client', new_client_path, class: 'btn btn-primary'
+%h1 Clients
+
 %table.table.table-striped
   %thead
     %tr
       %th Title
-      %th{colspan: 3}
+      %th.text-right
+        = link_to '', new_client_path, class: 'btn btn-success btn-sm glyphicon glyphicon-file', title: 'Create new client'
   %tbody
     - @clients.each do |client|
       %tr
         %td= link_to client.name, client_path(client.id)
-        %td= link_to 'Client Requests', client_requests_path(client.id), class: 'btn btn-info'
-        %td= link_to 'Edit Client', edit_client_path(client), class: 'btn btn-info'
-        %td= link_to 'Destroy', client, method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger'
-
-%br/
+        %td.text-right
+          = link_to '', client_requests_path(client.id), class: 'btn btn-info btn-sm glyphicon glyphicon-list-alt', title: 'Requests'
+          = link_to '', edit_client_path(client), class: 'btn btn-primary btn-sm glyphicon glyphicon-pencil', title: 'Edit'
+          = link_to '', client, method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger btn-sm glyphicon glyphicon-trash', title: 'Delete'
 
 = paginate @clients, views_prefix: 'pagination'

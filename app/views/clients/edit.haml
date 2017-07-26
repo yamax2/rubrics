@@ -1,10 +1,12 @@
-%h1 Editing Client
-= form_for(@client) do |f|
-  .field
-    = f.label :name
-    %br/
-    = f.text_field :name
-  .actions
-    = f.submit @client.new_record? ? 'Create' : 'Edit'
-%br/
-= link_to 'Back', clients_path
+- breadcrumb :client, @client
+
+.form-horizontal
+  %h1 Editing Client
+  = form_for(@client) do |f|
+    .form-group
+      .col-xs-2.col-sm-1.col-md-1.control-label
+        = f.label :name
+      .col-xs-8.col-sm-6.col-md-4
+        = f.text_field :name, class: 'form-control', autofocus: true
+    .actions
+      = f.submit @client.new_record? ? 'Create' : 'Save', class: 'btn btn-primary'

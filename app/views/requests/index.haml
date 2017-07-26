@@ -1,21 +1,22 @@
-= paginate @requests, views_prefix: 'pagination'
-%br/
-= link_to 'Main page', clients_path
-%h1 Request list
+- breadcrumb :requests, @client
 
-= link_to 'New Request', new_client_request_path, class: 'btn btn-primary'
+= paginate @requests, views_prefix: 'pagination'
+
+%h1 Requests
+
 %table.table.table-striped
   %thead
     %tr
       %th Title
-      %th{colspan: 3}
+      %th.text-right
+        = link_to '', new_client_request_path, class: 'btn btn-success btn-sm glyphicon glyphicon-file', title: 'Create new request'
   %tbody
     - @client.requests.each do |req|
       %tr
         %td= link_to req.title, client_request_path(@client, req)
-        %td= link_to 'Show Request', client_request_path(@client, req), class: 'btn btn-info'
-        %td= link_to 'Edit request', edit_client_request_path(@client, req),  class: 'btn btn-info'
-        %td= link_to 'Destroy', client_request_path(@client, req), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger'
-%br/
+        %td.text-right
+          = link_to '', client_request_path(@client, req), class: 'btn btn-info btn-sm glyphicon glyphicon-list-alt', title: 'Show'
+          = link_to '', edit_client_request_path(@client, req), class: 'btn btn-primary btn-sm glyphicon glyphicon-pencil', title: 'Edit'
+          = link_to '', client_request_path(@client, req), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger btn-sm glyphicon glyphicon-trash', title: 'Delete'
 
 = paginate @requests, views_prefix: 'pagination'

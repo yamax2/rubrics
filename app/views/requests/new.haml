@@ -1,15 +1,17 @@
-%h1 New Request
-= form_for [@client, @request] do |f|
-  .field
-    = f.label :title
-    %br/
-    = f.text_field :title
-    %br/
-    = f.label :body
-    %br/
-    = f.text_field :body
-  .actions
-    %br/
-    = f.submit @request.new_record? ? 'Create' : 'Edit'
-%br/
-= link_to 'All requests', client_requests_path
+- breadcrumb :request, [@client, @request]
+
+.form-horizontal
+  %h1 New Request
+  = form_for [@client, @request] do |f|
+    .form-group
+      .col-xs-2.col-sm-1.col-md-1.control-label
+        = f.label :title
+      .col-xs-8.col-sm-6.col-md-4
+        = f.text_field :title, class: 'form-control', autofocus: true
+    .form-group
+      .col-xs-2.col-sm-1.col-md-1.control-label
+        = f.label :body
+      .col-xs-8.col-sm-6.col-md-4
+        = f.text_area :body, rows: 5, class: 'form-control'
+    .actions
+      = f.submit @request.new_record? ? 'Create' : 'Save', class: 'btn btn-primary'
