@@ -7,7 +7,7 @@ crumb :rubrics do
 end
 
 crumb :rubric do |rubric|
-  link rubric.title, rubric
+  link rubric.title || %Q(new #{rubric.model_name.human}).capitalize, rubrics_path(rubric_id: rubric)
   if rubric.rubric
     parent :rubric, rubric.rubric
   else

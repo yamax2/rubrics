@@ -1,18 +1,20 @@
 - breadcrumb :rubric, @rubric
-%strong Rubric subs:
-= link_to @rubric.title, rubrics_path(rubric_id: @rubric.id)
-%br
-%strong Rubric content:
-= @rubric.content
-%br
-%br
-= link_to 'New Main Rubric', new_rubric_path, class: 'btn btn-warning'
-%br
-%br
-= link_to 'New Subrubric', new_rubric_path(rubric_id: @rubric&.id), class: 'btn btn-warning'
-%br
-%br
-= link_to 'Edit Rubric', edit_rubric_path(@rubric),  class: 'btn btn-danger'
-%br
-%br
-= link_to 'Main page', rubrics_path, class: 'btn btn-primary'
+
+%h3
+  Title:
+  %small
+    = @rubric.title
+%h3
+  Content:
+  %small
+    = @rubric.content
+.btn-group
+  = link_to 'New Subrubric', new_rubric_path(rubric_id: @rubric&.id), class: 'btn btn-default'
+  %button.btn.btn-default.dropdown-toggle{'data-toggle' => 'dropdown', 'aria-haspopup' => 'true', 'aria-expanded' => 'false'}
+    %span.caret
+    %span.sr-only Toggle dropdown
+  %ul.dropdown-menu
+    %li
+      = link_to 'New Subrubric', new_rubric_path(rubric_id: @rubric&.id)
+      = link_to 'New Rubric', new_rubric_path
+= link_to '', edit_rubric_path(@rubric),  class: 'btn btn-primary glyphicon glyphicon-pencil', title: 'Edit'

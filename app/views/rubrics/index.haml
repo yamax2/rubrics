@@ -4,21 +4,23 @@
   - breadcrumb :rubrics
 
 = paginate @rubrics, views_prefix: 'pagination'
+%h2 Rubrics
 
-%h1 Rubric list
-= link_to 'New Rubric', new_rubric_path(rubric_id: @rubric&.id), class: 'btn btn-primary'
 %table.table.table-striped
   %thead
     %tr
       %th Title
-      %th{colspan: 3}
+      %th Content
+      %th.text-right
+        = link_to '', new_rubric_path(rubric_id: @rubric&.id), class: 'btn btn-success btn-sm glyphicon glyphicon-file', title: 'Create new rubric'
   %tbody
     - @rubrics.each do |rubric|
       %tr
-        %td= link_to rubric.title, rubrics_path(rubric_id: rubric.id)
-        %td= link_to 'Show rubric', rubric_path(rubric), class: 'btn btn-info'
-        %td= link_to 'Edit rubric', edit_rubric_path(rubric), class: 'btn btn-info'
-        %td= link_to 'Destroy', rubric, method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger'
-%br/
+        %td= link_to rubric.title, rubrics_path(rubric_id: rubric.id), title: 'Open view page'
+        %td= rubric.content.truncate(75, separator: /\s/)
+        %td.text-right
+          = link_to '', rubric_path(rubric), class: 'btn btn-info btn-sm glyphicon glyphicon-list-alt', title: 'Show'
+          = link_to '', edit_rubric_path(rubric), class: 'btn btn-primary btn-sm glyphicon glyphicon-pencil', title: 'Edit'
+          = link_to '', rubric, method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger btn-sm glyphicon glyphicon-trash', title: 'Delete'
 
 = paginate @rubrics, views_prefix: 'pagination'
